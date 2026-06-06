@@ -1,0 +1,57 @@
+Calisma akisi (UTF-8) — sadelesmis
+====================================
+
+Ana yol: ChaLearn resmi validation + test ground_truth zip ve istege bagli test
+video arsivi -> etiketlerim_chalearn_val.csv / etiketlerim_chalearn_test.csv.
+
+1) Ortam (zip basina sifre farkli olabilir):
+
+   set CHALEARN_PWD_VALIDATION_LABELS=...
+   set CHALEARN_PWD_TEST_LABELS=...
+   set CHALEARN_PWD_TEST_VIDEO=...
+   Tek sifre: set CHALEARN_ZIP_PASSWORD=...
+
+2) Hazirlik:
+
+   cd ml
+   python chalearn_prepare.py --extract_test_video
+
+   Cikti: yukaridaki iki CSV, data/chalearn_unpacked/, ust klasorde _data_test/
+
+3) Video–etiket kontrolu:
+
+   python check_labels_vs_videos.py --video_dir ..\_data_test\test ^
+     --labels_csv etiketlerim_chalearn_test.csv
+
+4) Metin korpusu (istediginiz CSV ile):
+
+   python custom_labels_to_corpus.py --labels_csv etiketlerim_chalearn_val.csv ^
+     --output corpus_from_labels.txt
+
+5) Isaret tanima (R3D-18), varsayilan CSV val:
+
+   pip install -r requirements-ml.txt
+   python sign_label_map.py --output artifacts/label_map.json
+   python train_sign_video.py --video_dir ..\_data_val\val
+   (video klasorunu kendi cikardiniz split'e gore degistirin.)
+
+6) Degerlendirme (checkpoint varsa):
+
+   python eval_checkpoint.py --checkpoint output\sign_r3d\best.pt ^
+     --labels etiketlerim_chalearn_test.csv --video_dir ..\_data_test\test
+
+7) Train yalnizca etiket CSV (goruntu arsivi bu projede yok):
+
+   python import_train_labels.py --train_labels ...\train_labels.csv --output etiketlerim_train.csv
+
+8) El ile ground_truth.csv donusumu (zip acilmissa):
+
+   python import_ground_truth_csv.py --ground_truth yol\ground_truth.csv --output cikti.csv
+
+9) AUTSL CSV'lerden metin dosyasi: prepare_autsl_corpus.py
+
+10) LM ince ayari: train_turkish_causal_lm.py
+
+Sutun aciklamasi: etiket_sablonu_aciklama.txt | Sablon ornek: templates/etiket_sablonu.csv
+
+API: backend acikken GET /datasets/chalearn

@@ -1,0 +1,23 @@
+Rapor icin kisa madde ozeti
+----------------------------
+- Amaç: Turkce isaret dilinden metne yonelik prototip; web arayuzu + API.
+- Veri: ChaLearn AUTSL tarzi resmi validation/test etiket zip'leri ve test
+  goruntu arsivi acildi; etiketler tek formatta CSV'ye alindi.
+- Yazilim: FastAPI backend, React on yuz; ML tarafinda R3D-18 tabanli
+  video scriptleri ve degerlendirme yardimcisi.
+- Sinir: Egitim goruntu cok parcali arsivi acilmadigi icin tam uc-split
+  video egitimi yapilmadi; train tarafinda yalnizca etiket CSV hazirligi var.
+
+Rapor paragrafi (benim agzimdan, sade cumleler)
+----------------------------------------------
+Bu projede isaret dilini metne donusturmek icin basit bir web arayuzu ve
+arkada calisan bir API kurdum. Oncelikle ChaLearn veri setindeki resmi
+etiket dosyalarini ve test videolarini acip bunlari tek tip CSV etiket
+dosyalarina cevirdim; boylece videolarla etiketlerin eslesmesini
+denetleyebiliyorum. Egitim icin gereken cok parcali goruntu arsivini
+bilgisayarimda saglikli sekilde acamadigim icin tam model egitimini o
+kisma biraktim, ama etiket tarafini ve test verisini hazir birakarak
+ileride egitim ve degerlendirme adimina gecebilecek durumdayim. Web
+tarafinda kamera ve yukleme uzerinden ornek akisi denenebiliyor;
+simdilik tahminler mock veya hazir bir agirlik dosyasi varsa onunla
+baglanabilir.

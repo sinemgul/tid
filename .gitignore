@@ -1,0 +1,23 @@
+node_modules/
+dist/
+.env
+.venv/
+__pycache__/
+*.pyc
+ml/output/
+ml/artifacts/
+ml/corpus_autsl_gloss.txt
+ml/.venv/
+
+# Buyuk veri (videolar repoda degil)
+_data_val/
+_data_test/
+_data_train/
+*.mp4
+
+# Gecici / yerel
+wrar_list.txt
+_thesis_extract.txt
+ml/data/chalearn_extractions/
+ml/data/chalearn_labels_out/
+frontend/.env

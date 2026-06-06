@@ -1,0 +1,24 @@
+Etiketleme sonra kullanim – akis (UTF-8)
+=====================================
+
+1) video_koku: Dosya adindan _color / _depth uzantisini cikarip kalan kok.
+   Ornek: signer11_sample100_color.mp4 -> signer11_sample100
+
+2) tr_isaret_veya_cumle: Bu klip icin dogru Turkce karsilik.
+   - Izole isaret veri setinde genelde TEK kelime / kisa gloss.
+   - Cumle seviyesinde calisiyorsaniz tum cumleyi yazin (boslukla ayri kelimeler).
+
+3) sinif_id: Sayisal sinif kullanacaksaniz 0..N-1 veya AUTSL ClassId.
+   Bos birakilabilir; sadece dil modeli icin metin yeterliyse tr_* dolu olsun.
+
+4) Etiketleri Excel ile acmayin (UTF-8 ve ayirici bozulabilir).
+   VS Code/Cursor veya LibreOffice CSV UTF-8 ile kaydedIn.
+
+5) Hazir CSV ile:
+   - Isaret tanima (siniflandirma): sinif_id + video listesi gerekir (ayri pipeline).
+   - Dil modeli / metin: python custom_labels_to_corpus.py --labels_csv ...
+
+6) Oncelik sirasi:
+   a) Tum train (ve mumkunse val/test) icin ayni sema
+   b) Kalite kontrol (yanlis etiket > model hatasi)
+   c) Sonra egitim scriptleri

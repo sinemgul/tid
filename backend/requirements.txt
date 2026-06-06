@@ -1,0 +1,6 @@
+fastapi
+uvicorn[standard]
+pydantic
+python-multipart
+# Gercek model tahmini: backend'i ml sanal ortami ile calistirin veya:
+# pip install torch torchvision Pillow
