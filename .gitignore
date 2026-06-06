@@ -4,10 +4,11 @@ dist/
 .venv/
 __pycache__/
 *.pyc
-ml/output/
+ml/output/*
 !ml/output/sign_frame/
+ml/output/sign_frame/*
 !ml/output/sign_frame/best.pt
-ml/artifacts/
+ml/artifacts/*
 !ml/artifacts/label_map.json
 !ml/artifacts/gallery.npz
 !ml/artifacts/kelime_listesi.txt
