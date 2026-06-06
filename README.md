@@ -56,3 +56,11 @@ Adres: `http://127.0.0.1:5173`
 - Dark mode arayuz, landing (`/`) ve uygulama (`/app`)
 - Webcam ve periyodik `predict` cagrisi
 - Zustand state (`isStreaming`, `rawText`, `correctedText`)
+
+## On egitilmis model (repoda)
+
+Repoda `ml/output/sign_frame/best.pt` ve `ml/artifacts/gallery.npz` vardir.
+Clone sonrasi ek egitim gerekmez; backend baslatinca gercek tahmin calisir.
+
+**Videolar repoda degil** (`_data_val`, `_data_test`). Kendi AUTSL videolarinizla
+yeniden egitmek icin `ml/run_full_training.ps1` kullanin.
